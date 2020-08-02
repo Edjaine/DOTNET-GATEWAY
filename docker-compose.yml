@@ -1,0 +1,38 @@
+version: '3.4'
+
+services:
+  gateway:
+    image: gateway:latest
+    build:
+      context: GATEWAY/.
+      dockerfile: Dockerfile
+    ports: 
+        - 1000:80
+
+  microservico-1:
+    image: microservico-1:latest
+    build:
+      context: MS1/.
+      dockerfile: Dockerfile
+    ports: 
+        - 10000:80
+
+  microservico-2:
+    image: microservico-2:latest
+    build:
+      context: MS2/.
+      dockerfile: Dockerfile
+    ports: 
+        - 11000:80
+
+  microservico-3:
+    image: microservico-3:latest
+    build:
+      context: MS3/.
+      dockerfile: Dockerfile
+    ports: 
+        - 12000:80
+networks:
+  default:
+    external:
+      name: rede-integrada
