@@ -37,8 +37,16 @@ namespace GATEWAY
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+        var authenticationProviderKey = "afsdkjasjflxswafsdklk434orqiwup3457u-34oewir4irroqwiffv48mfs";
+
             services.AddControllers();
+            services.AddAuthentication()
+                .AddJwtBearer(authenticationProviderKey, x =>
+                {
+                });
             services.AddOcelot(Configuration);
+            
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,8 +61,8 @@ namespace GATEWAY
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
-
             app.UseOcelot().Wait();
 
             app.UseEndpoints(endpoints =>

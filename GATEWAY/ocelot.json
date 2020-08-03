@@ -1,16 +1,51 @@
 {
     "Routes": [
         {
-        "DownstreamPathTemplate": "/todos/{id}",
-        "DownstreamScheme": "https",
+        "DownstreamPathTemplate": "/recurso",
+        "DownstreamScheme": "http",
         "DownstreamHostAndPorts": [
             {
-                "Host": "jsonplaceholder.typicode.com",
-                "Port": 443
+                "Host": "microservico-1",
+                "Port": 80
             }
         ],
-        "UpstreamPathTemplate": "/todos/{id}",
-        "UpstreamHttpMethod": [ "Get" ]
+        "UpstreamPathTemplate": "/micro-1/recurso",
+        "UpstreamHttpMethod": [ "Get" ],
+        "RouteIsCaseSensitive": false,
+        "AuthenticationOptions": {
+            "SecurityKey": "afsdkjasjflxswafsdklk434orqiwup3457u-34oewir4irroqwiffv48mfs"
+        }
+        },
+        {
+        "DownstreamPathTemplate": "/recurso",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+            {
+                "Host": "microservico-2",
+                "Port": 80
+            }
+        ],
+        "UpstreamPathTemplate": "/micro-2/recurso",
+        "UpstreamHttpMethod": [ "Get" ],
+        "RouteIsCaseSensitive": false,
+        "AuthenticationOptions": {
+            "SecurityKey": "afsdkjasjflxswafsdklk434orqiwup3457u-34oewir4irroqwiffv48mfs"
+        }
+        },
+        {
+        "DownstreamPathTemplate": "/recurso",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+            {
+                "Host": "microservico-3",
+                "Port": 80
+            }
+        ],
+        "UpstreamPathTemplate": "/micro-3/recurso",
+        "UpstreamHttpMethod": [ "Get" ],
+        "AuthenticationOptions": {
+            "SecurityKey": "afsdkjasjflxswafsdklk434orqiwup3457u-34oewir4irroqwiffv48mfs"
+        }
         }
     ],
     "GlobalConfiguration": {
