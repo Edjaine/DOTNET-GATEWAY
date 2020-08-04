@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 
 namespace MS1
 {
@@ -29,6 +30,12 @@ namespace MS1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddSwaggerGen(c =>{
+                     c.SwaggerDoc("v1", new OpenApiInfo { Title = "MICRO-SERVICO-1", Version = "v1" });
+            }); 
+
+
             services.AddAuthentication(x =>{	
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -54,7 +61,12 @@ namespace MS1
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>{
+             c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
 
             app.UseRouting();
 

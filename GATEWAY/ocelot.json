@@ -1,54 +1,95 @@
 {
-    "Routes": [
-        {
-        "DownstreamPathTemplate": "/recurso",
-        "DownstreamScheme": "http",
-        "DownstreamHostAndPorts": [
-            {
-                "Host": "microservico-1",
-                "Port": 80
-            }
-        ],
-        "UpstreamPathTemplate": "/micro-1/recurso",
-        "UpstreamHttpMethod": [ "Get" ],
-        "RouteIsCaseSensitive": false,
-        "AuthenticationOptions": {
-            "SecurityKey": "afsdkjasjflxswafsdklk434orqiwup3457u-34oewir4irroqwiffv48mfs"
-        }
-        },
-        {
-        "DownstreamPathTemplate": "/recurso",
-        "DownstreamScheme": "http",
-        "DownstreamHostAndPorts": [
-            {
-                "Host": "microservico-2",
-                "Port": 80
-            }
-        ],
-        "UpstreamPathTemplate": "/micro-2/recurso",
-        "UpstreamHttpMethod": [ "Get" ],
-        "RouteIsCaseSensitive": false,
-        "AuthenticationOptions": {
-            "SecurityKey": "afsdkjasjflxswafsdklk434orqiwup3457u-34oewir4irroqwiffv48mfs"
-        }
-        },
-        {
-        "DownstreamPathTemplate": "/recurso",
-        "DownstreamScheme": "http",
-        "DownstreamHostAndPorts": [
-            {
-                "Host": "microservico-3",
-                "Port": 80
-            }
-        ],
-        "UpstreamPathTemplate": "/micro-3/recurso",
-        "UpstreamHttpMethod": [ "Get" ],
-        "AuthenticationOptions": {
-            "SecurityKey": "afsdkjasjflxswafsdklk434orqiwup3457u-34oewir4irroqwiffv48mfs"
-        }
-        }
+    "Routes":[
+       {
+          "DownstreamPathTemplate":"/recurso",
+          "DownstreamScheme":"http",
+          "DownstreamHostAndPorts":[
+             {
+                "Host":"microservico-1",
+                "Port":80
+             }
+          ],
+          "UpstreamPathTemplate":"/micro-1/recurso",
+          "UpstreamHttpMethod":[
+             "Get"
+          ],
+          "SwaggerKey":"micro-1",
+          "RouteIsCaseSensitive":false,
+          "AuthenticationOptions":{
+             "SecurityKey":"afsdkjasjflxswafsdklk434orqiwup3457u-34oewir4irroqwiffv48mfs"
+          }
+       },
+       {
+          "DownstreamPathTemplate":"/recurso",
+          "DownstreamScheme":"http",
+          "DownstreamHostAndPorts":[
+             {
+                "Host":"microservico-2",
+                "Port":80
+             }
+          ],
+          "UpstreamPathTemplate":"/micro-2/recurso",
+          "UpstreamHttpMethod":[
+             "Get"
+          ],
+          "SwaggerKey":"micro-2",
+          "RouteIsCaseSensitive":false,
+          "AuthenticationOptions":{
+             "SecurityKey":"afsdkjasjflxswafsdklk434orqiwup3457u-34oewir4irroqwiffv48mfs"
+          }
+       },
+       {
+          "DownstreamPathTemplate":"/recurso",
+          "DownstreamScheme":"http",
+          "DownstreamHostAndPorts":[
+             {
+                "Host":"microservico-3",
+                "Port":80
+             }
+          ],
+          "SwaggerKey":"micro-3",
+          "UpstreamPathTemplate":"/micro-3/recurso",
+          "UpstreamHttpMethod":[
+             "Get"
+          ],
+          "AuthenticationOptions":{
+             "SecurityKey":"afsdkjasjflxswafsdklk434orqiwup3457u-34oewir4irroqwiffv48mfs"
+          }
+       }
     ],
-    "GlobalConfiguration": {
-        "BaseUrl": "https://localhost:5000"
+    "SwaggerEndPoints":[
+       {
+          "Key":"micro-1",          
+          "Config":[
+             {
+                "Name":"micro-1",
+                "Version":"v1",
+                "Url":"http://microservico-1:80/swagger/v1/swagger.json"
+             }
+          ]
+       } ,
+       {
+        "Key":"micro-2",          
+        "Config":[
+           {
+              "Name":"micro-2",
+              "Version":"v1",
+              "Url":"http://microservico-2:80/swagger/v1/swagger.json"
+           }
+        ]
+     } ,
+     {
+        "Key":"micro-3",          
+        "Config":[
+           {
+              "Name":"micro-3",
+              "Version":"v1",
+              "Url":"http://microservico-3:80/swagger/v1/swagger.json"
+           }
+        ]
+     }
+    ],
+    "GlobalConfiguration":{
+       "BaseUrl":"http://localhost:5000/swagger/v1/swagger.json"
     }
-}
+ }

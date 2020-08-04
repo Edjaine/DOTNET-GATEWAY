@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "l2CbsZ+EcecflKF2lFCSc3p2OMtCf7uVg5YcrqlD7Vc9kISdf7M2Q6T/Pi9633cjeq+HtYV2oRDSgfxTN3Sk2g==",
+  "dgSpecHash": "dE6g/YmAdRtQuXB01ZVbHZXd4cKmtVM58+z61YdlFnKWzOXZVoeS/DIF5LoHhvfpN6txeQfs1Mni2mtolutsYw==",
   "success": true,
   "projectFilePath": "/home/edjaine/Documentos/Fontes/POC/DOTNET-GATEWAY/MS3/MS3.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/home/edjaine/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "/home/edjaine/.nuget/packages/microsoft.openapi/1.1.4/microsoft.openapi.1.1.4.nupkg.sha512",
+    "/home/edjaine/.nuget/packages/swashbuckle.aspnetcore/5.5.0/swashbuckle.aspnetcore.5.5.0.nupkg.sha512",
+    "/home/edjaine/.nuget/packages/swashbuckle.aspnetcore.swagger/5.5.0/swashbuckle.aspnetcore.swagger.5.5.0.nupkg.sha512",
+    "/home/edjaine/.nuget/packages/swashbuckle.aspnetcore.swaggergen/5.5.0/swashbuckle.aspnetcore.swaggergen.5.5.0.nupkg.sha512",
+    "/home/edjaine/.nuget/packages/swashbuckle.aspnetcore.swaggerui/5.5.0/swashbuckle.aspnetcore.swaggerui.5.5.0.nupkg.sha512"
+  ],
   "logs": []
 }

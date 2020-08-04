@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 
 namespace MS3
 {
@@ -17,6 +18,7 @@ namespace MS3
     {
         public Startup(IConfiguration configuration)
         {
+            
             Configuration = configuration;
         }
 
@@ -25,6 +27,10 @@ namespace MS3
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+           services.AddSwaggerGen(c =>{
+                     c.SwaggerDoc("v1", new OpenApiInfo { Title = "MICRO-SERVICO-1", Version = "v1" });
+            }); 
+
             services.AddControllers();
         }
 
@@ -35,7 +41,12 @@ namespace MS3
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseSwagger();
 
+            app.UseSwaggerUI(c =>{
+             c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
+            
             app.UseHttpsRedirection();
 
             app.UseRouting();
