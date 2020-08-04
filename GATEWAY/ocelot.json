@@ -17,7 +17,8 @@
           "RouteIsCaseSensitive":false,
           "AuthenticationOptions":{
              "SecurityKey":"afsdkjasjflxswafsdklk434orqiwup3457u-34oewir4irroqwiffv48mfs"
-          }
+          },
+          "key": "ms1"
        },
        {
           "DownstreamPathTemplate":"/recurso",
@@ -36,7 +37,8 @@
           "RouteIsCaseSensitive":false,
           "AuthenticationOptions":{
              "SecurityKey":"afsdkjasjflxswafsdklk434orqiwup3457u-34oewir4irroqwiffv48mfs"
-          }
+          },
+          "key": "ms2"
        },
        {
           "DownstreamPathTemplate":"/recurso",
@@ -54,10 +56,22 @@
           ],
           "AuthenticationOptions":{
              "SecurityKey":"afsdkjasjflxswafsdklk434orqiwup3457u-34oewir4irroqwiffv48mfs"
-          }
+          },
+          "key": "ms3"
        }
     ],
     "SwaggerEndPoints":[
+      {
+         "Key": "gateway",
+         "TransformByOcelotConfig": false,
+         "Config": [
+           {
+             "Name": "Gateway",
+             "Version": "v1",
+             "Url": "http://localhost:80/swagger/v1/swagger.json"
+           }
+         ]
+       },
        {
           "Key":"micro-1",          
           "Config":[
@@ -88,7 +102,16 @@
            }
         ]
      }
-    ],
+    ],    
+    "Aggregates": [
+      {
+          "RouteKeys": [
+              "ms2",
+              "ms3"
+          ],
+          "UpstreamPathTemplate": "/agg"
+         }
+      ],
     "GlobalConfiguration":{
        "BaseUrl":"http://localhost:5000/swagger/v1/swagger.json"
     }
